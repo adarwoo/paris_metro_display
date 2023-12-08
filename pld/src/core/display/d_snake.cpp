@@ -52,7 +52,7 @@ namespace display
       tiny_index_t station_index = 0;
 
       /** Keep a local copy of the frame buffer */
-      fb_mem_t our_fb = { 0 };
+      fb_mem_t our_fb;
 
       /**
        * Keep a sorted list of all the active leds in the chaser
