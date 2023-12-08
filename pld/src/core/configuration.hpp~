@@ -1,0 +1,66 @@
+/**
+ * @addtogroup core
+ * @{
+ * @addtogroup config
+ * @{
+ *****************************************************************************
+ * Configure the various modes of the display here.
+ *****************************************************************************
+ * @file
+ * Implementation of the configuration of the sequencer
+ * @author software@arreckx.com
+ * @internal
+ */
+
+#include "core/mode/mode.hpp"
+#include "lib/cpp.h"
+
+using namespace mode;
+
+// ---------------------------------------------------------------------------
+// Forward declarations
+// ---------------------------------------------------------------------------
+namespace mode
+{
+   //
+   // ADD MODE TYPES HERE
+   //
+   class Demo;
+   class Metro;
+   class Boot;
+   class Temperature;
+   class Pharmacy;
+}
+
+/** To keep all configurable items within */
+namespace config
+{
+   /** Defines the list of modes selected by a short push on the switch */
+   IMode *short_push_sequence[]
+   {
+      //
+      // ADD OR SET MODES ORDER HERE
+      // THE FIRST IN THE LIST WILL START IMMEDIATLY
+      //
+      get_mode_ptr<Boot>(),
+      get_mode_ptr<Metro>(),
+      get_mode_ptr<Temperature>(),
+      get_mode_ptr<Pharmacy>(),
+   };
+
+   /**
+    * @param long_push_mode
+    * Defines the mode to enter upon a long push on the select switch 
+    */
+
+   //
+   // SET THE LONG PUSH MODE HERE
+   //
+   IMode * long_push_mode = get_mode_ptr<Demo>();
+   
+   /** @return The number of modes in the short push sequence */
+   constexpr size_t number_of_sequence = countof(short_push_sequence);
+}
+
+/**@}*/
+/** @} ------------------------  End of file  ---------------------------- */
