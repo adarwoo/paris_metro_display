@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\pld\src\logger\logger_common.c">
+      <Filter>Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pld\src\logger\logger_cxx.cpp">
+      <Filter>Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pld\src\logger\logger_disabled.c">
+      <Filter>Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pld\src\logger\logger_os_win32.cpp">
+      <Filter>Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pld\src\logger\logger_trace_stack.cpp">
+      <Filter>Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pld\src\core\display\d_count_down.cpp">
+      <Filter>Embedded files\Modes and displays</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pld\src\core\display\d_fade.cpp">
+      <Filter>Embedded files\Modes and displays</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pld\src\core\display\d_fireworks.cpp">
+      <Filter>Embedded files\Modes and displays</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pld\src\core\display\d_metro.cpp">
+      <Filter>Embedded files\Modes and displays</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pld\src\core\display\d_snake.cpp">
+      <Filter>Embedded files\Modes and displays</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pld\src\core\display\d_temperature.cpp">
+      <Filter>Embedded files\Modes and displays</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pld\src\core\display\d_time.cpp">
+      <Filter>Embedded files\Modes and displays</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pld\src\core\display\d_wait_for_valid_clock.cpp">
+      <Filter>Embedded files\Modes and displays</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pld\src\core\mode\m_boot.cpp">
+      <Filter>Embedded files\Modes and displays</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pld\src\core\mode\m_demo.cpp">
+      <Filter>Embedded files\Modes and displays</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pld\src\core\mode\m_pharmacy.cpp">
+      <Filter>Embedded files\Modes and displays</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pld\src\core\mode\m_temperature.cpp">
+      <Filter>Embedded files\Modes and displays</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pld\src\core\mode\m_metro.cpp">
+      <Filter>Embedded files\Modes and displays</Filter>
+    </ClCompile>
+    <ClCompile Include="win_alert.cpp">
+      <Filter>Simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="win_fb.cpp">
+      <Filter>Simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="win_measurement.cpp">
+      <Filter>Simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="win_reactor.cpp">
+      <Filter>Simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="win_rtc.cpp">
+      <Filter>Simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="win_timer.cpp">
+      <Filter>Simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="winsim.cpp">
+      <Filter>Simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pld\src\lib\timer.c">
+      <Filter>Embedded files\Libs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pld\src\lib\tz.c">
+      <Filter>Embedded files\Libs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pld\src\core\sequencer.cpp">
+      <Filter>Embedded files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pld\src\core\topo.c">
+      <Filter>Embedded files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Simulation</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\pld\src\logger\logger_limits.h">
+      <Filter>Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\pld\src\logger\logger_os.h">
+      <Filter>Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\pld\src\logger.h">
+      <Filter>Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\pld\src\core\mode\mode.hpp">
+      <Filter>Embedded files\Modes and displays</Filter>
+    </ClInclude>
+    <ClInclude Include="..\pld\src\core\display\display.hpp">
+      <Filter>Embedded files\Modes and displays</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Simulation\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="winsim.h">
+      <Filter>Simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\pld\src\lib\alert.h">
+      <Filter>Embedded files\Libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\pld\src\lib\builtin.hpp">
+      <Filter>Embedded files\Libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\pld\src\lib\cpp.h">
+      <Filter>Embedded files\Libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\pld\src\lib\debug.h">
+      <Filter>Embedded files\Libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\pld\src\lib\timer.h">
+      <Filter>Embedded files\Libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\pld\src\lib\tz.h">
+      <Filter>Embedded files\Libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\pld\src\lib\singleton.hpp">
+      <Filter>Embedded files\Libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\pld\src\lib\reactor.h">
+      <Filter>Embedded files\Libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\pld\src\logger\internals.h">
+      <Filter>Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\pld\src\core\configuration.hpp">
+      <Filter>Embedded files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\pld\src\driver\fb.h">
+      <Filter>Embedded files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\pld\src\driver\key.h">
+      <Filter>Embedded files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\pld\src\core\measurements.h">
+      <Filter>Embedded files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\pld\src\core\sequencer.h">
+      <Filter>Embedded files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="station_points.h">
+      <Filter>Embedded files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\pld\src\core\topo.h">
+      <Filter>Embedded files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\pld\src\core\topo_routes.h">
+      <Filter>Embedded files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\pld\src\core\topo_stations.h">
+      <Filter>Embedded files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Simulation</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="RER_A.gif">
+      <Filter>Simulation\Resources</Filter>
+    </Image>
+    <Image Include="small.ico">
+      <Filter>Simulation\Resources</Filter>
+    </Image>
+    <Image Include="winsim.ico">
+      <Filter>Simulation\Resources</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Simulation">
+      <UniqueIdentifier>{51db4eb0-da56-4ab7-b25b-545dbe6bfe56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Logger">
+      <UniqueIdentifier>{7a1f5fd4-f24c-4cc2-ac45-63764869370a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Embedded files">
+      <UniqueIdentifier>{c30f97cd-c020-4fd3-8ad3-f0a8fe959ae2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Embedded files\Modes and displays">
+      <UniqueIdentifier>{f9d13669-ff22-4973-b01d-231d5f084e78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Simulation\Resources">
+      <UniqueIdentifier>{f00323a2-6e3e-4616-9ca5-533e275077b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Embedded files\Core">
+      <UniqueIdentifier>{709511ef-0ac2-4045-8dbe-0bea2deabc67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Embedded files\Libs">
+      <UniqueIdentifier>{2fee838b-aa9e-47bd-b5b0-adb676e8f013}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt">
+      <Filter>Simulation</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="winsim.rc">
+      <Filter>Simulation\Resources</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
