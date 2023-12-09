@@ -27,11 +27,11 @@
 #define TZ_HOUR_ADJUST 1
 
 /** Period in which to check that the GPS is still alive */
-#ifndef DEBUG
-#  define GPS_HEALTH_CHECK_PERIOD TIMER_HOURS(2)
-#else
-#  define GPS_HEALTH_CHECK_PERIOD TIMER_MINUTES(2)
-#endif
+#define GPS_HEALTH_CHECK_PERIOD TIMER_MINUTES(5)
+
+/** Drop the RTC time if the GPS has been away for some time */
+#define RTC_VALID_FOR_PERIOD TIMER_HOURS(1)
+
 
 #include "lib/gps.h"
 
@@ -54,11 +54,11 @@ TinyGPS gps;
 /** Flag to signal that the GPS has sent a valid string - therefore it must be ready */
 static bool _gps_time_is_initialized = false;
 
-/** Flag to signal the time has been synced with the GPS time */
-static bool _gps_time_is_synchronized = false;
-
 /** Reactor handle */
 reactor_handle_t _gps_reactor_handle = 0;
+
+/** Last time the clock was valid */
+static timer_count_t _last_time_the_rtc_clock_was_valid = 0;
 
 /** Called by the timer interrupt to notify the reactor in all cases */
 static void _kick_reactor(void)
@@ -81,15 +81,12 @@ uint8_t override_time_once = 0;
  */
 void _gps_check_gps_data_age( timer_instance_t i, void *arg )
 {
-   if ( ! _gps_time_is_synchronized )
+   if ( timer_time_lapsed_since(_last_time_the_rtc_clock_was_valid) > RTC_VALID_FOR_PERIOD )
    {
       // Invalidate the system clock
       rtc_set_time(0);
    }
    
-   // Reset the flag
-   _gps_time_is_synchronized = false;
-
    // Re-arm   
    timer_arm_from_now( &_gps_check_gps_data_age, GPS_HEALTH_CHECK_PERIOD, 0 );
 }
@@ -112,6 +109,9 @@ static void _gps_update(void)
          {
             gps_configure();
             _gps_time_is_initialized = true;
+			
+			// Start a background check
+			timer_arm_from_now( &_gps_check_gps_data_age, GPS_HEALTH_CHECK_PERIOD, 0 );
             
             // Do not decode this frame as the module is not configured the way we want
             // Wait for the next
@@ -170,7 +170,12 @@ static void _gps_update(void)
             };
          
             // Convert to CET (winter) epoch time
-            epochGps = tz_convert_to_cet( calendar_date_to_timestamp( &date ) );
+			epochGps = calendar_date_to_timestamp( &date );
+			
+			// Our GPS has missing a roll over of the week counter - adjust!
+			epochGps += (7168l * 24 * 60 * 60);
+			
+            epochGps = tz_convert_to_cet( epochGps );
             uint32_t epochRtc = rtc_get_time();
 
             // Different?
@@ -179,9 +184,9 @@ static void _gps_update(void)
                // Update the RTC clock
                rtc_set_time(epochGps);
             }
-         
+			
             // Indicate the system time has been synchronized
-            _gps_time_is_synchronized = true;
+			_last_time_the_rtc_clock_was_valid = timer_get_count();
          }
       }         
    }
@@ -234,9 +239,6 @@ void gps_manager_init(void)
    
    // Back to running.
    ioport_set_pin_high(GPS_N_RESET);
-   
-   // Check that the GPS has received valid data
-   timer_arm_from_now( &_gps_check_gps_data_age, GPS_HEALTH_CHECK_PERIOD, 0 );
 }
 
 void gps_configure(void)

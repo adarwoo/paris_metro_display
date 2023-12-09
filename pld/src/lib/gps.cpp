@@ -312,10 +312,11 @@ void TinyGPS::crack_datetime(
 {
    unsigned long date, time;
    get_datetime(&date, &time, age);
+   
    if (year)
    {
       *year = date % 100;
-      *year += *year > 80 ? 1900 : 2000;
+      *year += 2000;
    }
    if (month) *month = (date / 100) % 100;
    if (day) *day = date / 10000;
